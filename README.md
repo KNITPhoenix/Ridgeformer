@@ -5,7 +5,9 @@
 ![fingerprint_main_dia](https://github.com/user-attachments/assets/5bdb4d46-5cea-4ca2-a001-8406689543cb)
 
 ## Environment creation 
-environment.yml (on python 3.8.19). Also needs timm==0.5.0 attached to this repo
+- conda create -n ridgeformer python=3.8.19
+- conda activate ridgeformer
+- pip install -r requirements.txt
 
 ## Pretrained and Finetuned checkpoints: [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws)
 
