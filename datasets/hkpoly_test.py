@@ -103,7 +103,7 @@ class hktest(Dataset):
         contactbased_ids = list()
         x=0
 
-        with open("/data2/scratch/spandey8/fingerprint_data/hkpolyu_test.json",'r') as js:
+        with open("hkpolyu_test.json",'r') as js:
             sample_dict = json.load(js)
         for file in sample_dict:
             contactless_paths.extend(sample_dict[file]['Contactless'])
@@ -125,12 +125,6 @@ class hktest(Dataset):
         for filename in self.allfiles["contactless"]:
             id = filename.split("/")[-3]
             self.all_labels.append(self.label_id_mapping.index(id))
-        
-        # print(len(contactbased_paths))
-        # print(len(contactbased_ids))
-        # print(len(contactless_paths))
-        # print(len(contactless_ids))
-        # print(len(self.all_labels))
 
         for filename in self.allfiles["contactbased"]:
             id = filename.split("/")[-3]
@@ -146,7 +140,7 @@ class hktest(Dataset):
         print("Total number of images ", split ," : ", len(self.all_labels))
         
     def __len__(self):
-        return 200#len(self.all_files_paths_contactless)
+        return len(self.all_files_paths_contactless)
 
     def __getitem__(self, idx):
         if torch.is_tensor(idx):
@@ -162,9 +156,6 @@ class hktest(Dataset):
         contactless_sample = contactless_sample.convert("RGB")
         contactbased_sample = cv2.imread(contactbased_filename)
         contactbased_sample = cropping_preprocess(contactbased_sample)
-
-        # flipping -- no flipping required
-        # contactless_sample = cv2.flip(contactless_sample, 1)
         
         self.transform = transforms.Compose([
                         transforms.ToTensor(),
@@ -172,33 +163,5 @@ class hktest(Dataset):
                         transforms.Grayscale(num_output_channels=3),
                         ])
         contactless_sample  = self.transform(contactless_sample)
-        # contactless_sample  = transforms.functional.adjust_brightness(contactless_sample,brightness_factor = 0.4)
-        # contactless_sample  = transforms.functional.autocontrast(contactless_sample)
         contactbased_sample = self.transform(contactbased_sample)
-
-        # print(contactless_filename)
-        # print(contactbased_filename)
-        # # contactless_sample.save('cl_test.jpg')
-        # # cv2.imwrite('cb_test.jpg',contactbased_sample)
-        # save_image(contactless_sample,'cl_test.jpg')
-        # save_image(contactbased_sample,'cb_test.jpg')
-        # exit(0)
-
-        # Convert from tensor to NumPy array, rearrange channels and scale the pixel values
-        # contactless_sample_np = contactless_sample.permute(1, 2, 0).numpy() * 255.0
-        # contactbased_sample_np = contactbased_sample.permute(1, 2, 0).numpy() * 255.0
-        # cv2.imwrite("./sample_images/" + contactless_filename.split("/")[-1], contactless_sample_np)
-        # cv2.imwrite("./sample_images/" + contactbased_filename.split("/")[-1], contactbased_sample_np)
-        # print(contactless_filename.split("/")[-1], contactbased_filename.split("/")[-1])
-
         return contactless_sample, contactbased_sample, self.all_labels[idx]
-        # return contactless_filename, contactbased_filename, self.label_id_mapping[self.all_labels[idx]]
-    
-if __name__ == "__main__":
-    combined_data = hktest(split = "test")
-    dataloader = DataLoader(combined_data, batch_size=1,shuffle=True, num_workers=1)
-    for cl, cb, label in dataloader:
-        print(cl)
-        print(cb)
-        print(label)
-        print("____________________________________________________________")
