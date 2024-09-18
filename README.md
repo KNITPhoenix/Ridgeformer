@@ -1,4 +1,4 @@
-# Ridgeformer
+# Ridgeformer: a Cross Domain Fingerprint Matching Network
 
 ## Under Review for ICASSP 2025
 
