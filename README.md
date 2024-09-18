@@ -2,7 +2,7 @@
 
 ## Under Review for ICASSP 2025
 
-![fingerprint_main_dia](https://github.com/user-attachments/assets/796e5628-b550-42a9-b04e-57c2afca5f65)
+![fingerprint_main_dia](https://github.com/user-attachments/assets/5bdb4d46-5cea-4ca2-a001-8406689543cb)
 
 ### environment creation: environment.yml (on python 3.8.19). Also needs timm==0.5.0
 
