@@ -69,10 +69,6 @@ class RB_loader(Dataset):
                     transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.2),
                     transforms.GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 0.2)),
                     transforms.Grayscale(num_output_channels=3),
-                    # transforms.Normalize(
-                    #     mean=[0.485, 0.456, 0.406],
-                    #     std=[0.229, 0.224, 0.225],
-                    #)
                     ]),
             "test": transforms.Compose([
                     transforms.ToTensor(),
@@ -161,24 +157,5 @@ class RB_loader(Dataset):
             contactless_sample  = self.transform(contactless_sample)
             contactbased_sample = self.transform(contactbased_sample)
 
-        # # Convert from tensor to NumPy array, rearrange channels and scale the pixel values
-        # contactless_sample_np = contactless_sample.permute(1, 2, 0).numpy() * 255.0
-        # contactbased_sample_np = contactbased_sample.permute(1, 2, 0).numpy() * 255.0
-
-        # cv2.imwrite("./sample_images/" + contactless_filename.split("/")[-1], contactless_sample_np)
-        # cv2.imwrite("./sample_images/" + contactbased_filename.split("/")[-1], contactbased_sample_np)
-
-        # print(contactless_filename.split("/")[-1], contactbased_filename.split("/")[-1])
-
         return contactless_sample, contactbased_sample, self.all_labels[idx], contactless_filename, contactbased_filename
-        # return contactless_filename, contactbased_filename, self.label_id_mapping[self.all_labels[idx]]
-    
-if __name__ == "__main__":
-    ridgebase = RB_loader(split = "test")
-    dataloader = DataLoader(ridgebase, batch_size=1,
-                        shuffle=True, num_workers=1)
-    
-    for cl,cb, label in dataloader:
-        print(cl)
-        print(cb)
         print(label)
