@@ -4,7 +4,7 @@
 
 ![fingerprint_main_dia](https://github.com/user-attachments/assets/5bdb4d46-5cea-4ca2-a001-8406689543cb)
 
-## Environment creation 
+## Environment
 - conda create -n ridgeformer python=3.8.19
 - conda activate ridgeformer
 - pip install -r requirements.txt
