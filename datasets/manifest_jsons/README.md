@@ -1,1 +1,1 @@
-### store all .json files with images path here that are going to be used for training
+### store all .json files having path of images that are going to used for training here
