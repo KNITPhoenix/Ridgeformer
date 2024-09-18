@@ -9,5 +9,5 @@
 
 
 
-# License
+## License
 Ridgeformer is CC-BY-NC 4.0 licensed, as found in the LICENSE file. It is released for academic research / non-commercial use only.
