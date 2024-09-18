@@ -2,4 +2,4 @@
 
 ## Under Review for ICASSP 2025
 
-## checkpoints: https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws
+## checkpoints: [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws)
