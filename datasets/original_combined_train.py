@@ -79,7 +79,7 @@ class RandomRegionBlurOut(object):
 
 class Combined_original(Dataset):
     def __init__(self, manifest_files, split = "train"):
-        self.base_path = "/data2/scratch/spandey8/fingerprint_data/Data_training_ridgeformer/manifest_jsons/"
+        self.base_path = "manifest_jsons/"
         self.manifest_file = manifest_files
         self.split = split
         self.transforms ={
@@ -134,9 +134,6 @@ class Combined_original(Dataset):
             elif filename.split("/")[-4].lower() == 'hkpolyu':
                 id = filename.split("/")[-3]+"_"+filename.split("/")[-4].lower()
                 self.all_datasets_id.append(2)
-            # elif filename.split("/")[-4].lower() == 'hkpolyu_test':
-            #     id = filename.split("/")[-3]+"_"+filename.split("/")[-4].lower()
-            #     self.all_datasets_id.append(3)
             else:
                 id = filename.split("/")[-3]+"_"+filename.split("/")[-2]+"_"+filename.split("/")[-4].lower()
                 self.all_datasets_id.append(3)
@@ -149,8 +146,6 @@ class Combined_original(Dataset):
                 id = filename.split("/")[-3]+"_"+filename.split("/")[-2]+"_"+filename.split("/")[-5].lower()
             elif filename.split("/")[-4].lower() == 'hkpolyu':
                 id = filename.split("/")[-3]+"_"+filename.split("/")[-4].lower()
-            # elif filename.split("/")[-4].lower() == 'hkpolyu_test':
-            #     id = filename.split("/")[-3]+"_"+filename.split("/")[-4].lower()
             else:
                 id = filename.split("/")[-3]+"_"+filename.split("/")[-2]+"_"+filename.split("/")[-4].lower()
             id = self.label_id_mapping.index(id)
@@ -178,7 +173,7 @@ class Combined_original(Dataset):
             contactbased_filename = self.label_id_to_contactbased[label][idx % len(self.label_id_to_contactbased[label])]
         
         # reading image
-        if contactless_filename.split("/")[-4].lower() == 'hkpolyu': #or contactless_filename.split("/")[-4].lower() == 'hkpolyu_test':
+        if contactless_filename.split("/")[-4].lower() == 'hkpolyu':
             contactless_sample = Image.open(contactless_filename)
             contactless_sample = contactless_sample.convert("RGB")
             contactbased_sample = cv2.imread(contactbased_filename)
@@ -210,15 +205,11 @@ class Combined_original(Dataset):
                     transforms.ToTensor(),
                     transforms.Resize((224, 224),interpolation=InterpolationMode.BICUBIC),
                     RandomRegionBlackOut(p=0.4, blackout_ratio=0.2),
-                    # RandomRegionBlackOut(p=0.4, blackout_ratio=0.4),
                     RandomRegionBlurOut(p=0.2, blackout_ratio=0.1),
                     transforms.ColorJitter(brightness=0.6, contrast=2),
-                    # transforms.GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 0.2)),
                     transforms.Grayscale(num_output_channels=3)
                     ])
             contactless_sample  = self.transform(contactless_sample)
-            # contactless_sample  = transforms.functional.adjust_brightness(contactless_sample,brightness_factor = 0.6)
-            # contactless_sample  = transforms.functional.adjust_contrast(contactless_sample,contrast_factor = 2)
             contactbased_sample = self.transform(contactbased_sample)
         elif contactless_filename.split("/")[-5] in ['ISPFDv2_blackback']:   # done
             category_cb = 2
@@ -227,27 +218,20 @@ class Combined_original(Dataset):
                     transforms.ToTensor(),
                     transforms.Resize((224, 224),interpolation=InterpolationMode.BICUBIC),
                     RandomRegionBlackOut(p=0.4, blackout_ratio=0.2),
-                    # RandomRegionBlackOut(p=0.4, blackout_ratio=0.4),
                     RandomRegionBlurOut(p=0.2, blackout_ratio=0.1),
-                    # transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.2),
-                    # transforms.GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 0.2)),
                     transforms.Grayscale(num_output_channels=3)
                     ])
             contactless_sample  = self.transform(contactless_sample)
             contactless_sample  = transforms.functional.adjust_brightness(contactless_sample,brightness_factor = 0.1)
             contactless_sample  = transforms.functional.autocontrast(contactless_sample)
             contactbased_sample = self.transform(contactbased_sample)
-        elif contactless_filename.split("/")[-4].lower() == 'hkpolyu': #or contactless_filename.split("/")[-4].lower() == 'hkpolyu_test':  # done
+        elif contactless_filename.split("/")[-4].lower() == 'hkpolyu':
             category_cb = 4
             category_cl = 5
             self.transform = transforms.Compose([
                         transforms.ToTensor(),
                         transforms.Resize((224, 224),interpolation=InterpolationMode.BICUBIC),
                         RandomRegionBlackOut(p=0.4, blackout_ratio=0.2),
-                        # RandomRegionBlackOut(p=0.4, blackout_ratio=0.4),
-                        # RandomRegionBlurOut(p=0.4, blackout_ratio=0.4),
-                        # transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.2),
-                        # transforms.GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 0.2)),
                         transforms.RandomRotation((-10,10)),
                         transforms.Grayscale(num_output_channels=3),
                         ])
@@ -262,10 +246,7 @@ class Combined_original(Dataset):
                     transforms.ToTensor(),
                     transforms.Resize((224, 224),interpolation=InterpolationMode.BICUBIC),
                     RandomRegionBlackOut(p=0.4, blackout_ratio=0.2),
-                    # RandomRegionBlackOut(p=0.4, blackout_ratio=0.4),
                     RandomRegionBlurOut(p=0.2, blackout_ratio=0.1),
-                    # transforms.ColorJitter(brightness=0.4, contrast=0.4, saturation=0.4, hue=0.2),
-                    # transforms.GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 0.2)),
                     transforms.Grayscale(num_output_channels=3)
                     ])
             contactless_sample  = self.transform(contactless_sample)
@@ -279,15 +260,11 @@ class Combined_original(Dataset):
                     transforms.ToTensor(),
                     transforms.Resize((224, 224),interpolation=InterpolationMode.BICUBIC),
                     RandomRegionBlackOut(p=0.4, blackout_ratio=0.2),
-                    # RandomRegionBlackOut(p=0.4, blackout_ratio=0.4),
                     RandomRegionBlurOut(p=0.2, blackout_ratio=0.1),
                     transforms.ColorJitter(brightness=0.8, contrast=3),
-                    # transforms.GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 0.2)),
                     transforms.Grayscale(num_output_channels=3)
                     ])
             contactless_sample  = self.transform(contactless_sample)
-            # contactless_sample  = transforms.functional.adjust_brightness(contactless_sample,brightness_factor = 0.8)
-            # contactless_sample  = transforms.functional.adjust_contrast(contactless_sample,contrast_factor = 3)
             contactbased_sample = self.transform(contactbased_sample)
         else:   # ISPFDv1_colorback - done
             category_cb = 6
@@ -296,36 +273,12 @@ class Combined_original(Dataset):
                     transforms.ToTensor(),
                     transforms.Resize((224, 224),interpolation=InterpolationMode.BICUBIC),
                     RandomRegionBlackOut(p=0.4, blackout_ratio=0.2),
-                    # RandomRegionBlackOut(p=0.4, blackout_ratio=0.4),
                     RandomRegionBlurOut(p=0.2, blackout_ratio=0.1),
-                    # transforms.ColorJitter(brightness=0.6, contrast=2),
-                    # transforms.GaussianBlur(kernel_size=(5, 5), sigma=(0.1, 0.2)),
                     transforms.Grayscale(num_output_channels=3)
                     ])
             contactless_sample  = self.transform(contactless_sample)
             contactless_sample  = transforms.functional.adjust_brightness(contactless_sample,brightness_factor = 0.6)
             contactless_sample  = transforms.functional.adjust_contrast(contactless_sample,contrast_factor = 2)
-            # contactless_sample = transforms.functional.autocontrast(contactless_sample)
             contactbased_sample = self.transform(contactbased_sample)
 
-        # if contactless_filename.split("/")[-4] == 'ISPFDv1_colorback':
-        #     print(contactless_filename)
-        #     print(contactbased_filename)
-        #     # contactless_sample.save('cl_test.jpg')
-        #     # cv2.imwrite('cb_test.jpg',contactbased_sample)
-        #     save_image(contactless_sample,'cl_test.jpg')
-        #     save_image(contactbased_sample,'cb_test.jpg')
-        #     exit(0)
-
         return contactless_sample, contactbased_sample, self.all_labels[idx], category_cl, category_cb
-        # return contactless_filename, contactbased_filename, self.label_id_mapping[self.all_labels[idx]]
-    
-if __name__ == "__main__":
-    combined_data = Combined(["hkpolyu.json","ispfdv1_blackback.json","ispfdv1_colorback.json","ispfdv2_blackback.json","ispfdv2_colorback.json","ridgebase.json","hkpolyu_test.json"], split = "train")
-    # combined_data = Combined(["ridgebase.json"], split = "train")
-    dataloader = DataLoader(combined_data, batch_size=1,shuffle=True, num_workers=1)
-    for cl, cb, label in dataloader:
-        print(cl)
-        print(cb)
-        print(label)
-        print("____________________________________________________________")
