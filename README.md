@@ -1,6 +1,6 @@
 # Ridgeformer: a Cross Domain Fingerprint Matching Network
 
-## Under Review for ICASSP 2025
+### Paper Under Review for ICASSP 2025
 
 ![fingerprint_main_dia](https://github.com/user-attachments/assets/5bdb4d46-5cea-4ca2-a001-8406689543cb)
 
