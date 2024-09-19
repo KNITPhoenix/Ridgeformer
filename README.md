@@ -40,9 +40,11 @@ Download the zip file from [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7p
 
 ## Training
 Stage 1 - train_combined.py is used to train the model on Stage 1 of our architecture
+
 Stage 2 - train_combined_fusion.py is used to train the model on Stage 2 of our architecture
 
 All the performance ROCs and matrices are saved in combined_models_scores directory
+
 All tensorboard logs are saved in experiment_logs directory
 
 ## Testing and Evaluation
