@@ -1,4 +1,4 @@
-# script to evaluated HKPolyU testing dataset on finetuned model after phase 2
+# script to evaluate HKPolyU testing dataset on finetuned model after phase 2
 import torch
 from datasets.hkpoly_test import hktest
 from utils import Prev_RetMetric, l2_norm, compute_recall_at_k
