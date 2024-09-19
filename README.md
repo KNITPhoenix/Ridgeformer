@@ -55,7 +55,7 @@ All tensorboard logs are saved in experiment_logs directory
 - Evaluation of ridgebase testing dataset on pretrained checkpoint from Stage 2 can be done using rb_evaluation_phase1.py
 
 ## Performance compared with SOTA methods on HKPolyU dataset (1:1 verification)
-|Method | Probe | Gallery | EER(%) | TAR(%)@FAR=.01|
+|Method | Probe | Gallery | EER(%) | TAR(%)@FAR=.01 |
 | :---: | :---: | :---: | :---: | :---: |
 |Verifinger | CL | CB | 19.31 | 76.00 |
 |RTPS+DCM | CL | CB | 14.33 | 50.50 |
@@ -63,6 +63,15 @@ All tensorboard logs are saved in experiment_logs directory
 |MANet | CL | CB | 4.13 | 88.50 |
 |ML Fusion | CL | CB | 4.07 | 94.40|
 |Ridgeformer (Ours)| CL | CB | 2.83 | 89.34|
+
+## Performance compared with SOTA methods on HKPolyU dataset (1:N identification)
+|Method | Probe | Gallery | R@1 | R@10 |
+| :---: | :---: | :---: | :---: | :---: |
+|Verifinger | CL | CB | 80.73 | 91.00 |
+|RTPS+DCM | CL | CB | 66.67 | 83.00 |
+|Multi-Siamese | CL | CB | 64.59 | 91.00 |
+|MANet | CL | CB | 83.54 | 97.00 |
+|Ridgeformer (Ours)| CL | CB | 87.40 | 98.23 |
 
 ## License
 Ridgeformer is CC-BY-NC 4.0 licensed, as found in the LICENSE file. It is released for academic research / non-commercial use only.
