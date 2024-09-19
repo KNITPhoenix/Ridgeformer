@@ -9,6 +9,9 @@
 - conda activate ridgeformer
 - pip install -r requirements.txt
 
+It requires timm version 0.5.0 and can be installed with the given .whl file.
+It also requires pytorch>=2.2.2
+
 ## Preparing data and pretrained checkpoints
 
 ### Datasets used in training and their application link
@@ -34,6 +37,32 @@
 
 ### Pretrained models and Finetuned checkpoints
 Download the zip file from [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws) and unzip the contents in ridgeformer_checkpoints directory to use in evaluation and training scripts
+
+## Training
+Stage 1 - train_combined.py is used to train the model on Stage 1 of our architecture
+Stage 2 - train_combined_fusion.py is used to train the model on Stage 2 of our architecture
+
+All the performance ROCs and matrices are saved in combined_models_scores directory
+All tensorboard logs are saved in experiment_logs directory
+
+## Testing and Evaluation
+### HKPolyU
+- Evaluation of HKPolyU testing dataset on finetuned checkpoint from Stage 1 can be done using hkpoly_evaluation_phase1.py
+- Evaluation of HKPolyU testing dataset on finetuned checkpoint from Stage 2 can be done using hkpoly_evaluation_phase2.py
+
+### Ridgebase
+- Evaluation of ridgebase testing dataset on pretrained checkpoint from Stage 1 can be done using rb_evaluation_phase1.py
+- Evaluation of ridgebase testing dataset on pretrained checkpoint from Stage 2 can be done using rb_evaluation_phase1.py
+
+## Performance compared with SOTA methods on HKPolyU dataset (1:1 verification)
+|Method | Probe | Gallery | EER(%) | TAR(%)@FAR=.01|
+| :---: | :---: | :---: | :---: | :---: |
+|Verifinger | CL | CB | 19.31 | 76.00 |
+|RTPS+DCM | CL | CB | 14.33 | 50.50 |
+|Multi-Siamese | CL | CB | 7.93 | 54.00 |
+|MANet | CL | CB | 4.13 | 88.50 |
+|ML Fusion | CL | CB | 4.07 | 94.40|
+|Ridgeformer (Ours)| CL | CB | 2.83 | 89.34|
 
 ## License
 Ridgeformer is CC-BY-NC 4.0 licensed, as found in the LICENSE file. It is released for academic research / non-commercial use only.
