@@ -14,18 +14,6 @@ import torch.nn.functional as F
 import itertools
 
 torch.autograd.set_detect_anomaly(True)
-
-def get_MSloss():
-    msloss = losses.MultiSimilarityLoss(alpha=2, beta=50, base=0.5)
-    return msloss
-
-def get_Arcface(num_classes, embedding_size):
-    msloss = losses.ArcFaceLoss(num_classes, embedding_size, margin=28.6, scale=64)
-    return msloss
-
-def get_ProxyAnchor(num_classes, embedding_size):
-    proxyanchor = losses.ProxyAnchorLoss(num_classes, embedding_size, margin = 0.1, alpha = 32)
-    return proxyanchor
        
 class DualMSLoss_FineGrained(nn.Module):
     """
