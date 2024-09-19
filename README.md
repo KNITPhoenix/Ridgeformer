@@ -73,5 +73,23 @@ All tensorboard logs are saved in experiment_logs directory
 |MANet | CL | CB | 83.54 | 97.00 |
 |Ridgeformer (Ours)| CL | CB | 87.40 | 98.23 |
 
+## Performance compared with SOTA methods on Ridgebase dataset (1:1 verification)
+|Method | Probe | Gallery | EER(%) | TAR(%)@FAR=.01 |
+| :---: | :---: | :---: | :---: | :---: |
+|Verifinger | CL | CB | 18.90 | 57.60 |
+|Ridgeformer (Ours) | CL | CB | 5.25 | 82.23 |
+|AdaCos(CNN) | CL | CL | 21.30 | 61.20 |
+|Verifinger | CL | CL | 19.70 | 63.30 |
+|Ridgeformer (Ours)| CL | CL | 7.60 | 85.14 |
+
+## Performance compared with SOTA methods on Ridgebase dataset (1:N identification)
+|Method | Probe | Gallery | R@1 | R@10 |
+| :---: | :---: | :---: | :---: | :---: |
+|Verifinger | CL | CB | 72.50 | 89.20 |
+|Ridgeformer (Ours) | CL | CB | 69.90 | 92.64 |
+|Verifinger | CL | CL | 85.20 | 91.40 |
+|AdaCos(CNN) | CL | CL | 81.90 | 89.50 |
+|Ridgeformer (Ours)| CL | CL | 100.00 | 100.00 |
+
 ## License
 Ridgeformer is CC-BY-NC 4.0 licensed, as found in the LICENSE file. It is released for academic research / non-commercial use only.
