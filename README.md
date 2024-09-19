@@ -15,6 +15,10 @@
 - [IIITD SmartPhone Fingerphoto Database V1 (ISPFDv1)](https://iab-rubric.org/index.php/ispfdv1)
 - [IIITD SmartPhone Finger-Selfie Database V2 (ISPFDv2)](https://iab-rubric.org/index.php/ispfdv1)
 
+### Training dataset:
+- The Hong Kong Polytechnic University Contactless 2D to Contact-based 2D Fingerprint Images Database Version 1.0 (HKPolyU)
+- Ridgebase (RB)
+
 ## Pretrained and Finetuned checkpoints: [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws)
 
 ## License
