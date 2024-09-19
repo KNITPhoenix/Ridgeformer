@@ -32,8 +32,8 @@
   Subject -> finger -> background and instances
 - script manifest_file_creation.py in datasets directory is used to create manifest files used in dataloaders  
 
-### Pretrained models and Finetuned checkpoints: [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws)
-Download the zip file and unzip the contents in ridgeformer_checkpoints directory to use in evaluation and training scripts
+### Pretrained models and Finetuned checkpoints
+Download the zip file from [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws) and unzip the contents in ridgeformer_checkpoints directory to use in evaluation and training scripts
 
 ## License
 Ridgeformer is CC-BY-NC 4.0 licensed, as found in the LICENSE file. It is released for academic research / non-commercial use only.
