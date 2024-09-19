@@ -19,7 +19,7 @@
 - The Hong Kong Polytechnic University Contactless 2D to Contact-based 2D Fingerprint Images Database Version 1.0 (HKPolyU)
 - Ridgebase (RB)
 
-### Preprocessing ISPFD v1 and v2 datasets
+## Preprocessing ISPFD v1 and v2 datasets
 - scipts in ISPFD_preprocessing directory are used to segment out contactless images in ISPFD dataset
 - requires SAM checkpoint and openai clip
 - can be used after installing [segment-anything](https://pypi.org/project/segment-anything/) and downloading SAM [checkpoint](https://github.com/facebookresearch/segment-anything#model-checkpoints)
