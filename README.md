@@ -9,7 +9,7 @@
 - conda activate ridgeformer
 - pip install -r requirements.txt
 
-# Prepare data and pretrained checkpoints
+## Preparing data and pretrained checkpoints
 
 ### Datasets used in training and their application link
 - [Ridgebase(RB)](https://www.buffalo.edu/cubs/research/datasets/ridgebase-benchmark-dataset.html#title_0)
