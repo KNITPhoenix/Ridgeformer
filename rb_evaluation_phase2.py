@@ -68,9 +68,7 @@ with torch.no_grad():
         cl_labels.append(label)
 
 cl_label = torch.from_numpy(np.concatenate(cl_labels))
-print(cl_label.shape)
 cb_label = torch.from_numpy(np.concatenate(cb_labels))
-print(cb_label.shape)
 
 # CB2CL <---------------------------------------->
 scores_mat = get_fused_cross_score_matrix(model, cl_feats, cb_feats)
