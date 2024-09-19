@@ -165,56 +165,7 @@ def hkpoly_test_fn(model,device,test_loader,epoch,plot_argument):
     print(f"R@100 for CB2CL: {compute_recall_at_k(scores_mat, cl_label, cb_label, 100) * 100} %")
     torch.cuda.empty_cache()
 
-    # CL2CL
-    scores = torch.from_numpy(np.dot(cl_feats,np.transpose(cl_feats)))
-    row, col = torch.triu_indices(row=scores.size(0), col=scores.size(1), offset=1)
-    scores = scores[row, col]
-    scores = scores.numpy().flatten().tolist()
-    cl_label = torch.from_numpy(np.concatenate(cl_labels))
-    labels = torch.eq(cl_label.view(-1,1) - cl_label.view(1,-1),0.0).float().cuda()
-    labels = labels[torch.triu(torch.ones(labels.shape),diagonal = 1) == 1].tolist()
-    fpr,tpr,_ = roc_curve(labels,scores)
-    lower_fpr_idx = max(i for i, val in enumerate(fpr) if val < 0.01)
-    upper_fpr_idx = min(i for i, val in enumerate(fpr) if val >= 0.01)
-    tar_far_102 = (tpr[lower_fpr_idx]+tpr[upper_fpr_idx])/2
-    lower_fpr_idx = max(i for i, val in enumerate(fpr) if val < 0.001)
-    upper_fpr_idx = min(i for i, val in enumerate(fpr) if val >= 0.001)
-    tar_far_103 = (tpr[lower_fpr_idx]+tpr[upper_fpr_idx])/2
-    lower_fpr_idx = max(i for i, val in enumerate(fpr) if val < 0.0001)
-    upper_fpr_idx = min(i for i, val in enumerate(fpr) if val >= 0.0001)
-    tar_far_104 = (tpr[lower_fpr_idx]+tpr[upper_fpr_idx])/2
-    clcltf102 = tar_far_102 * 100
-    clcltf103 = tar_far_103 * 100
-    clcltf104 = tar_far_104 * 100
-    fnr = 1 - tpr
-    EER = fpr[np.nanargmin(np.absolute((fnr - fpr)))]
-    roc_auc = auc(fpr, tpr)
-    plt.figure()
-    plt.plot(fpr, tpr, label='ROC curve (area = %0.2f)' % roc_auc)
-    plt.plot([0, 1], [0, 1], 'k--', label='No Skill')
-    plt.xlim([0, 1])
-    plt.ylim([0, 1])
-    plt.xlabel('False Positive Rate')
-    plt.ylabel('True Positive Rate')
-    plt.title('ROC Curve CL2CL task1')
-    plt.legend(loc="lower right")
-    plt.savefig("combined_models_scores/roc_curve_cl2cl_task1_"+"_"+plot_argument[0]+"_"+plot_argument[1]+"_"+plot_argument[2]+"_"+plot_argument[3]+str(epoch)+".png", dpi=300, bbox_inches='tight')
-    print(f"ROCAUC for CL2CL: {roc_auc * 100} %")
-    print(f"EER for CL2CL: {EER * 100} %")
-    eer_cl2cl = EER * 100
-    print(f"TAR@FAR=10^-2 for CL2CL: {tar_far_102 * 100} %")
-    print(f"TAR@FAR=10^-3 for CL2CL: {tar_far_103 * 100} %")
-    print(f"TAR@FAR=10^-4 for CL2CL: {tar_far_104 * 100} %")
-    cl_label = cl_label.cpu().detach().numpy()
-    recall_score = Prev_RetMetric([cl_feats,cl_feats],[cl_label,cl_label],cl2cl = True)
-    cl2clk1 = recall_score.recall_k(k=1) * 100
-    print(f"R@1 for CL2CL: {recall_score.recall_k(k=1) * 100} %")
-    print(f"R@10 for CL2CL: {recall_score.recall_k(k=10) * 100} %")
-    print(f"R@50 for CL2CL: {recall_score.recall_k(k=50) * 100} %")
-    print(f"R@100 for CL2CL: {recall_score.recall_k(k=100) * 100} %")
-    torch.cuda.empty_cache()
-
-    return cl2clk1,cl2cbk1,eer_cb2cl,eer_cl2cl,cbcltf102,cbcltf103,cbcltf104,clcltf102,clcltf103,clcltf104
+    return cl2cbk1,eer_cb2cl,cbcltf102,cbcltf103,cbcltf104
 
 def main():
     # Training settings
