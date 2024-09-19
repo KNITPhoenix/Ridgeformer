@@ -50,7 +50,7 @@ class RandomRegionBlurOut(object):
 
 class RB_loader(Dataset):
     def __init__(self, split = "train"):
-        self.base_path = "/home/bhavinja/RidgeBase/Fingerprint_Train_Test_Split/"
+        self.base_path = "<path to ridgebase dataset parent folder>"
         
         fingerdict = {
             "Index": 0,
