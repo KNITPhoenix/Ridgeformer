@@ -78,6 +78,7 @@ if __name__ == '__main__':
     fpr,tpr,thresh = roc_curve(labels,scores,drop_intermediate=True)
     lower_fpr_idx = max(i for i, val in enumerate(fpr) if val < 0.01)
     upper_fpr_idx = min(i for i, val in enumerate(fpr) if val >= 0.01)
+    tar_far_102 = tpr[upper_fpr_idx]
 
     lower_fpr_idx = max(i for i, val in enumerate(fpr) if val < 0.001)
     upper_fpr_idx = min(i for i, val in enumerate(fpr) if val >= 0.001)
