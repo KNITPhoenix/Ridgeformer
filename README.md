@@ -110,6 +110,34 @@ All tensorboard logs are saved in experiment_logs directory
 |AdaCos(CNN) | CL | CL | 81.90 | 89.50 |
 |Ridgeformer (Ours)| CL | CL | 100.00 | 100.00 |
 
+## References
+
+> B. Jawade, D. Mohan, S. Setlur, N. Ratha and V. Govindaraju "RidgeBase: A Cross-Sensor Multi-Finger Contactless Fingerprint Dataset," 2022 IEEE International Joint Conference on Biometrics (IJCB), 2022
+
+```
+@book{jawade2022ridgebase,
+ author = "B. Jawade and D. Mohan and S. Setlur and N. Ratha and V. Govindaraju",
+ title = "RidgeBase: A Cross-Sensor Multi-Finger Contactless Fingerprint Dataset",
+ publisher = "2022 {IEEE} International Joint Conference on Biometrics ({IJCB})",
+ year = 2022
+}
+```
+> Chenhao Lin, Ajay Kumar, “Matching Contactless and Contact-based Conventional Fingerprint Images for Biometrics Identification”, IEEE Transactions on Image Processing, vol. 27, pp. 2008-2021, April 2018.
+
+```
+@ARTICLE{8244291,
+  author={Lin, Chenhao and Kumar, Ajay},
+  journal={IEEE Transactions on Image Processing}, 
+  title={Matching Contactless and Contact-Based Conventional Fingerprint Images for Biometrics Identification}, 
+  year={2018},
+  volume={27},
+  number={4},
+  pages={2008-2021},
+  keywords={Sensors;Strain;Deformable models;Image sensors;Interoperability;Databases;Splines (mathematics);Contactless fingerprint sensor interoperability;biometrics;deformation correction model (DCM)},
+  doi={10.1109/TIP.2017.2788866}}
+```
+> [Ridgebase dataset github](https://github.com/bhavinjawade/RidgeBase_Fingerprint_Camera_App)
+
 ## Contact
 For more information or any questions, feel free to reach us at spandey8@buffalo.edu
 
