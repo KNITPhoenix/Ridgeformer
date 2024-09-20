@@ -32,8 +32,21 @@ It also requires pytorch>=2.2.2
 
 ### Manifest files creation for dataloaders
 - script data_folder_creation.py in datasets directory is used to arrange the datasets in a specific folder structure
+
   Subject -> finger -> background and instances
-- script manifest_file_creation.py in datasets directory is used to create manifest files used in dataloaders  
+  
+- script manifest_file_creation.py in datasets directory is used to create manifest files used in dataloaders. The manifest file structure will be as follows:
+
+{
+Unique_finger_id_1:{
+'Contactless': ( list of paths of all contactless images )
+'Contactbased': ( list of paths of all contactbased images )
+},
+Unique_finger_id_2:{
+'Contactless': ( list of paths of all contactless images )
+'Contactbased': ( list of paths of all contactbased images )
+}
+......}
 
 ### Pretrained models and Finetuned checkpoints
 Download the zip file from [Link](https://buffalo.box.com/s/8wmvwhmvbmfsy8j7lr7ppa30bxe3hvws) and unzip the contents in ridgeformer_checkpoints directory to use in evaluation and training scripts
