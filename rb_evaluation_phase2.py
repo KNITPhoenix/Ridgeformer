@@ -1,6 +1,6 @@
 import torch
-from rb_loader_cl import RB_loader_cl
-from rb_loader_cb import RB_loader_cb
+from datasets.rb_loader_cl import RB_loader_cl
+from datasets.rb_loader_cb import RB_loader_cb
 from utils import Prev_RetMetric, l2_norm, compute_recall_at_k
 import numpy as np
 from tqdm import tqdm
