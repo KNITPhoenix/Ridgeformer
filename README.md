@@ -37,7 +37,7 @@ It also requires pytorch>=2.2.2
   
 - script manifest_file_creation.py in datasets directory is used to create manifest files used in dataloaders. The manifest file structure will be as follows:
 
-'''json
+'''python
 {
 Unique_finger_id_1:{
 'Contactless': ( list of paths of all contactless images )
