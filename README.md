@@ -10,7 +10,7 @@
 - pip install -r requirements.txt
 
 It requires timm version 0.5.0 and can be installed with the given .whl file.
-It also requires pytorch>=2.2.2
+We used pytorch>=2.2.2 for CUDA=12.2
 
 ## Preparing data and pretrained checkpoints
 
