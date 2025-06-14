@@ -1,4 +1,4 @@
-# Ridgeformer: Mutli-Stage Contrastive Training For Fine-grained Cross-Domain Fingerprint Recognition
+# Ridgeformer: Multi-Stage Contrastive Training For Fine-grained Cross-Domain Fingerprint Recognition
 ### Accepted in IEEE International Conference on Image Processing 2025
 
 ![ridgeformer](https://github.com/user-attachments/assets/60ee24c6-73e2-445e-a5d5-9b8b5580eee5)
