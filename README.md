@@ -141,3 +141,7 @@ For more information or any questions, feel free to reach us at spandey8@buffalo
 
 ## License
 Ridgeformer is CC-BY-NC 4.0 licensed, as found in the LICENSE file. It is released for academic research / non-commercial use only.
+
+## HuggingFace
+For a better view of the model directory structure and having checkpoints incorporated, please visit our HuggingFace model card:
+[Model Card](https://huggingface.co/spandey8/Ridgeformer)
