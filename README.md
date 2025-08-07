@@ -1,7 +1,7 @@
 # Ridgeformer: Multi-Stage Contrastive Training For Fine-grained Cross-Domain Fingerprint Recognition
 ### Accepted in IEEE International Conference on Image Processing 2025
 
-<img width="3868" height="1428" alt="fingerprint_main_dia" src="https://github.com/user-attachments/assets/bb45a68c-0202-4cfe-892c-1a3b2844613b" />
+<img width="1963" height="736" alt="fingerprint_main_dia" src="https://github.com/user-attachments/assets/713baf44-3c6b-4d21-a216-fe86ebaf5c9e" />
 
 ## Installations and environment creation
 - conda create -n ridgeformer python=3.8.19
