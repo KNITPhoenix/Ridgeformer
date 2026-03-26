@@ -149,5 +149,14 @@ For a better view of the model directory structure and having checkpoints incorp
 ## Citation
 If you use our method or refer our study in your research, we request you to please cite our work as:
 ```
-S. Pandey, B. Jawade and S. Setlur, "Ridgeformer: Mutli-Stage Contrastive Training for Fine-Grained Cross-Domain Fingerprint Recognition," 2025 IEEE International Conference on Image Processing (ICIP), Anchorage, AK, USA, 2025, pp. 2480-2485, doi: 10.1109/ICIP55913.2025.11084677.
+@INPROCEEDINGS{11084677,
+  author={Pandey, Shubham and Jawade, Bhavin and Setlur, Srirangaraj},
+  booktitle={2025 IEEE International Conference on Image Processing (ICIP)}, 
+  title={Ridgeformer: Mutli-Stage Contrastive Training for Fine-Grained Cross-Domain Fingerprint Recognition}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={2480-2485},
+  keywords={Training;Computer vision;Accuracy;Protocols;Image matching;Pipelines;Fingerprint recognition;Transformers;Feature extraction;Robustness;Biometrics;Feature Extraction;Vision Transformers;Retrieval;Identification},
+  doi={10.1109/ICIP55913.2025.11084677}}
 ```
