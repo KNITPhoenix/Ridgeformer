@@ -1,4 +1,4 @@
-# Ridgeformer: Multi-Stage Contrastive Training For Fine-grained Cross-Domain Fingerprint Recognition
+# [Ridgeformer: Multi-Stage Contrastive Training For Fine-grained Cross-Domain Fingerprint Recognition](https://ieeexplore.ieee.org/abstract/document/11084677)
 ### Accepted in IEEE International Conference on Image Processing 2025
 
 <img width="1963" height="736" alt="fingerprint_main_dia" src="https://github.com/user-attachments/assets/713baf44-3c6b-4d21-a216-fe86ebaf5c9e" />
@@ -145,3 +145,9 @@ Ridgeformer is CC-BY-NC 4.0 licensed, as found in the LICENSE file. It is releas
 ## HuggingFace
 For a better view of the model directory structure and having checkpoints incorporated, please visit our HuggingFace model card:
 [Model Card](https://huggingface.co/spandey8/Ridgeformer)
+
+## Citation
+If you use our method or refer our study in your research, we request you to please cite our work as:
+```
+S. Pandey, B. Jawade and S. Setlur, "Ridgeformer: Mutli-Stage Contrastive Training for Fine-Grained Cross-Domain Fingerprint Recognition," 2025 IEEE International Conference on Image Processing (ICIP), Anchorage, AK, USA, 2025, pp. 2480-2485, doi: 10.1109/ICIP55913.2025.11084677.
+```
